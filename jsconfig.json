@@ -1,0 +1,9 @@
+{
+    "compilerOptons":{
+        "baseUrl":".",
+        "path":{
+            "@/components/*":["components/*"],
+            "@/styles/*":["styles/*"],
+        }
+    }
+}

@@ -1,13 +1,12 @@
-import Layout from '../components/Layout'
-import {API_URL} from '../config/index'
-import EventItem from '../components/EventItem'
-import Link from 'next/link'
+import Layout from '../../components/Layout'
+import {API_URL} from '../../config/index'
+import EventItem from '../../components/EventItem'
 
-export default function HomePage({events}) {
+export default function EventsPage({events}) {
   // console.log(events);
   return (
     <Layout>
-      <h2>Upcomng Events</h2>
+      <h2>Events</h2>
       {events.length === 0 && <h3>No Events to show </h3> }
       {events.map(evt => (
         <EventItem
@@ -15,12 +14,6 @@ export default function HomePage({events}) {
           evt={evt}
         />
       ))}
-
-      {events.length > 0 && (
-        <Link href='/events'>
-          <a className='btn-secondary'>more events</a>
-        </Link>
-      )}
       
     </Layout>
   )
@@ -33,7 +26,7 @@ export async function getStaticProps() {
   // console.log(events)
   
   return {
-    props: {events: events.slice(0,3)},
+    props: {events},
     revalidate: 1,
   }
 }
